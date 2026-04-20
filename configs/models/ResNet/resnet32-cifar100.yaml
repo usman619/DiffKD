@@ -1,0 +1,14 @@
+backbone:
+    # name: [n, stride, in_channels, out_channels, expand_ratio, op]
+    # ResNet32: 3 blocks per stage (3+3+3+3=12 blocks, vs 3+4+6+3=16 for ResNet50)
+    conv_stem: [1, 2, 3, 64, 1, 'conv7x7']
+    pool1: [1, 2, 64, 64, 1, 'maxp_3x3']
+    stage1: [3, 1, 64, 256, 1, 'res_3x3', {'planes': 64}]
+    stage2: [3, 2, 256, 512, 1, 'res_3x3']
+    stage3: [3, 2, 512, 1024, 1, 'res_3x3']
+    stage4: [3, 2, 1024, 2048, 1, 'res_3x3']
+    gavg_pool: [1, 2048, 2048, 1, 'gavgp']
+head:
+    linear1:
+        dim_in: 2048
+        dim_out: 100
