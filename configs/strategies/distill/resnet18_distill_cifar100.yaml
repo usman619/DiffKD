@@ -1,0 +1,34 @@
+aa: null
+batch_size: 128
+color_jitter: 0.0
+decay_by_epoch: True
+decay_epochs: 30
+decay_rate: 0.1
+drop: 0.0
+epochs: 200
+log_interval: 50
+lr: 0.1
+min_lr: 1.0e-05
+model_ema: false
+model_ema_decay: 0.9998
+momentum: 0.9
+smoothing: 0.0
+opt: sgd
+opt_betas: null
+opt_eps: 1.0e-08
+remode: const
+reprob: 0.0
+sched: cosine
+seed: 42
+warmup_epochs: 5
+warmup_lr: 0.2
+weight_decay: 1.0e-4
+workers: 8
+# kd (knowledge distillation)
+kd: 'dist'
+ori_loss_weight: 1.
+kd_loss_weight: 2.
+# Teacher: ResNet-50 from trained checkpoint or pretrained
+teacher_model: 'nas_model'
+teacher_pretrained: False
+teacher_ckpt: 'experiments/teacher_resnet50_cifar100/model_best.pth.tar'
