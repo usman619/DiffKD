@@ -31,4 +31,4 @@ kd_loss_weight: 2.
 # Teacher: ResNet-50 from trained checkpoint or pretrained
 teacher_model: 'nas_model'
 teacher_pretrained: False
-teacher_ckpt: 'experiments/teacher_resnet50_cifar100/model_best.pth.tar'
+teacher_ckpt: 'experiments/teacher_resnet50_cifar100/best.pth.tar'

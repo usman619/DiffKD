@@ -55,8 +55,16 @@ def build_dataloader(args):
     if args.dataset == 'imagenet':
         train_transforms_l, train_transforms_r = transform.build_train_transforms(
             args.aa, args.color_jitter, args.reprob, args.remode, args.interpolation, args.image_mean, args.image_std)
-        train_dataset = ImageNetDataset(
-            os.path.join(args.data_path, 'train'), os.path.join(args.data_path, 'meta/train.txt'), transform=train_transforms_l)
+        train_path = os.path.join(args.data_path, 'train')
+        meta_path = os.path.join(args.data_path, 'meta/train.txt')
+        # Check if meta file exists (standard ImageNet) or ImageFolder format (ImageNet mini/Kaggle)
+        if os.path.exists(meta_path):
+            train_dataset = ImageNetDataset(train_path, meta_path, transform=train_transforms_l)
+        elif os.path.isdir(train_path):
+            # ImageFolder format (ImageNet mini/Kaggle dataset)
+            train_dataset = ImageFolder(train_path, transform=train_transforms_l)
+        else:
+            raise FileNotFoundError(f"ImageNet training data not found at {train_path}")
     elif args.dataset == 'cifar10':
         train_transforms_l, train_transforms_r = transform.build_train_transforms_cifar10(
             args.cutout_length, args.image_mean, args.image_std)
@@ -92,7 +100,16 @@ def build_dataloader(args):
     # val
     if args.dataset == 'imagenet':
         val_transforms_l, val_transforms_r = transform.build_val_transforms(args.interpolation, args.image_mean, args.image_std)
-        val_dataset = ImageNetDataset(os.path.join(args.data_path, 'val'), os.path.join(args.data_path, 'meta/val.txt'), transform=val_transforms_l)
+        val_path = os.path.join(args.data_path, 'val')
+        meta_path = os.path.join(args.data_path, 'meta/val.txt')
+        # Check if meta file exists (standard ImageNet) or ImageFolder format (ImageNet mini/Kaggle)
+        if os.path.exists(meta_path):
+            val_dataset = ImageNetDataset(val_path, meta_path, transform=val_transforms_l)
+        elif os.path.isdir(val_path):
+            # ImageFolder format (ImageNet mini/Kaggle dataset)
+            val_dataset = ImageFolder(val_path, transform=val_transforms_l)
+        else:
+            raise FileNotFoundError(f"ImageNet validation data not found at {val_path}")
     elif args.dataset == 'cifar10':
         val_transforms_l, val_transforms_r = transform.build_val_transforms_cifar10(args.image_mean, args.image_std)
         val_dataset = datasets.CIFAR10(root=args.data_path, train=False, download=True, transform=val_transforms_l)

@@ -122,3 +122,8 @@ data
 
 # python run_model file
 run_model.ipynb
+run_model_imagenet.ipynb
+
+#README
+IMAGENET_TRAINING_GUIDE.md
+SETUP_SUMMARY.md

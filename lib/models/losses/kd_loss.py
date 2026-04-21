@@ -21,6 +21,8 @@ KD_MODULES = {
     'tv_resnet34': dict(modules=['layer4', 'fc'], channels=[512, 1000]),
     'tv_resnet18': dict(modules=['layer4', 'fc'], channels=[512, 1000]),
     'resnet18': dict(modules=['layer4', 'fc'], channels=[512, 1000]),
+    'resnet32': dict(modules=['layer4', 'fc'], channels=[2048, 1000]),
+    'resnet50': dict(modules=['layer4', 'fc'], channels=[2048, 1000]),
     'tv_mobilenet_v2': dict(modules=['features.18', 'classifier'], channels=[1280, 1000]),
     'nas_model': dict(modules=['features.conv_out', 'classifier'], channels=[1280, 1000]),  # mbv2
     'timm_tf_efficientnet_b0': dict(modules=['conv_head', 'classifier'], channels=[1280, 1000]),
