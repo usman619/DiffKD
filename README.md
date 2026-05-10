@@ -104,12 +104,12 @@ The three-phase learning curve emerged naturally from the curriculum annealing w
 
 ## 🏗 Architecture
 
-![DL Methodology](notebooks/dl_improvement_diagram(final).png)
+![DL Methodology](notebooks/images/dl_improvement_diagram(final).png)
 ---
 
 ## Figures
 
-![Training dashboard](notebooks/images/diffkdplus-tinyimagenet-3_img32.png)
+![Training dashboard](notebooks/images/training_dashboard.png)
 
 ---
 
