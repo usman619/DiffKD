@@ -12,14 +12,14 @@
 **An enhanced implementation of DiffKD with three novel contributions:**  
 *CosKD · EMA Teacher Buffer · Curriculum Noise Schedule*
 
-[Paper](#paper) • [Key Results](#-key-results) • [Novelties](#-proposed-novelties) • [Setup](#-setup) • [Usage](#-usage) • [Architecture](#-architecture) • [Citation](#-citation)
-
 </div>
 
 ---
 
 ## Note:
 Final results files are inside `notebooks\` folder. It has both methodology diagram (`notebooks/dl_improvement_diagram(final).png`) and results visualization diagram (`notebooks/training_dashboard.png`). The training logs are also in the same folder `notebooks/training_history.csv`. The final are inside `notebooks/diffkdplus-tinyimagenet-3.ipynb` file as the other 2 crashed after saving the checkpoints required to resume the training of the model.
+
+---
 
 ## Overview
 
@@ -111,6 +111,7 @@ The three-phase learning curve emerged naturally from the curriculum annealing w
 
 ![Training dashboard](notebooks/images/diffkdplus-tinyimagenet-3_img32.png)
 
+---
 
 ## ⚙ Setup
 
@@ -139,8 +140,6 @@ Path    : /kaggle/input/tiny-imagenet/tiny-imagenet-200
 ```
 
 No other packages beyond the Kaggle default environment are required.
-
-
 
 ---
 
