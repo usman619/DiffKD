@@ -127,3 +127,9 @@ run_model_imagenet.ipynb
 #README
 IMAGENET_TRAINING_GUIDE.md
 SETUP_SUMMARY.md
+CIFAR100_IMPLEMENTATION_GUIDE.md
+research_improvement.ipynb
+train_imagenet_diffkd.sh
+train_student_diffkd.ipynb
+train_teacher_resnet50.sh
+monitor_training.sh
